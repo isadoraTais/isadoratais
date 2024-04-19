@@ -1,14 +1,29 @@
 const botoes = document.querySelectorAll(".botao");
 const textos = document.querySelectorAll(".aba-conteudo");
-const contador = document.querySelectorAll(".contador");
-const tempoObjetivo01 = new Date ("2024-30-08T00:00:00")
+const contadores = document.querySelectorAll(".contador");
+const tempoObjetivo01 = new Date("2024-05-29T00:00:00")
+let tempoAtual = new Date();
+
+contadores[0].textContent = calculaTempo(tempoObjetivo01)
+
 for(let i= 0; i< botoes.length; i++){
     botoes[i].onclick = function(){
-        for(j=0; j<botoes.length; j++){
+        for (let j=0; j<botoes.length; j++){
             botoes[j].classList.remove("ativo");
             textos[j].classList.remove("ativo");
         }
         botoes[i].classList.add("ativo");
         textos[i].classList.add("ativo");
+
     }
+}
+function cauculaTempo(tempoObjetivo01){
+    let tempoAtual = new Date( );
+    let tempoFinal = tempoObjetivo01 - tempoAtual; 
+    let segundos = Mach.Floor(tempoFinal /1000)
+    let minutos = Math.floor(segundos/60)
+    let horas = Math.floor(minutos/60)
+    let dias = Math.floor(horas/24)
+    
+    return segundos; 
 }
